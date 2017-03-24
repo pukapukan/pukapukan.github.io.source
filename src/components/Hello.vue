@@ -1,5 +1,6 @@
 <template>
   <div class="hello">
+    <about></about>
     <h1>{{ msg }}</h1>
     <h2>Essential Links</h2>
     <ul>
@@ -21,12 +22,20 @@
 </template>
 
 <script>
+import About from '@/components/About'
+
+const { screen } = this
+
 export default {
   name: 'hello',
   data () {
     return {
+      screen,
       msg: 'Welcome to Your Vue.js App'
     }
+  },
+  components: {
+    About
   }
 }
 </script>

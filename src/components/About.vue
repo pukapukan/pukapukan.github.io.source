@@ -1,0 +1,134 @@
+<template>
+  <div class="about-myself">
+    <div id="about" class="about">
+      <div class="space"></div>
+      <div class="profile z-depth-2 center">
+      </div>
+
+      <div class="myself center" auto-vertical>
+        Hi, my name is <b>Jason</b> (a.k.a. Hyunjoon) and I'm a <b>Korea-born Kiwi</b> + <b>.NET/JS geek</b>.  As a software engineer, I value <B>software craftmanship</b> and believe in harmony and synergy that comes from a great team, an awesome culture and a seasoned leader.
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'about-myself'
+}
+</script>
+
+<style>
+@custom-media --phone-screen (max-width: 480px);
+@custom-media --tablet-screen (max-width: 1024px);
+
+.about-myself {
+  display: block;
+  &:after {
+    content: ' ';
+    display: block;
+    height: 100px;
+  }
+}
+
+@keyframes fadein {
+  from { }
+  to {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes profile {
+  0% {
+    border-radius: 5px;
+    opacity: 0;
+    transform: translate(30px, 0) sclae(0.9);
+  }
+  50% {
+    border-radius: 5px;
+    opacity: 1;
+    transform: translate(0, 0) scale(0.9);
+  }
+  100% {
+    border-radius: 150px;
+    opacity: 1;
+    transform: translate(0, 0) scale(1.1);
+  }
+}
+
+.profile {
+  height: 300px;
+  width: 300px;
+  opacity: 0;
+  margin-bottom: 50px;
+  background-image: url('../assets/images/me/profile.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  transform: translateX(30px) scale(0.9);
+  animation: profile 4s ease 1;
+  animation-fill-mode:forwards;
+}
+
+.myself {
+  font-family: var(--description-font);
+  font-size: 1.5rem;
+  font-weight: 100;
+  line-height: 2em;
+  max-width: 400px;
+  max-width: 50vw;
+  opacity: 0;
+  transform: translateX(-30px);
+  animation: fadein 2s ease 1;
+  animation-delay: 0.5s;
+  animation-fill-mode:forwards;
+
+  & > b {
+    font-weight: 400;
+    font-family: Lobster;
+    font-size: 2rem;
+    text-shadow: 2px 2px rgba(174, 174, 174, 0.65);
+  }
+}
+.space {
+  height: 250px;
+  height: calc(50vh - 250px);
+}
+
+@media only screen and (--tablet-screen) {
+  .profile {
+    margin-bottom: 30px;
+  }
+}
+
+@media only screen and (--phone-screen) {
+  .space {
+    height: 220px;
+  }
+  .profile {
+    width: 225px;
+    height: 225px;
+    .border {
+      left: 8px;
+      top: 8px;
+      width: 202px;
+      height: 202px;
+    }
+  }
+  .myself {
+    font-size: 1.25rem;
+    line-height: 2rem;
+    max-width: 100%;
+    text-align: center;
+    b {
+      font-size: 1.5rem;
+      text-shadow: 1px 1px rgba(174, 174, 174, 0.65);
+    }
+  }
+}
+@media screen and (max-height: 1000px) {
+  .space {
+    height: 250px;
+  }
+}
+</style>
